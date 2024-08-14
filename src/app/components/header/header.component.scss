@@ -1,0 +1,28 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #0E1116;
+  padding: 0 1rem;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  font-family: "Baloo 2", sans-serif;
+  color: #E6E8F2;
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .header_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  a {
+    display: flex;
+    color: #E6E8F2;
+  }
+}
+
