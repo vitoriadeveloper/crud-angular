@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from "../../components/header/header.component";
+import { RegisterComponent } from '../register/register.component';
+import { CardComponent } from "../../components/card/card.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [RegisterComponent, CardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
