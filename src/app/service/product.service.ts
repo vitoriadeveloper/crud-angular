@@ -1,15 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Product } from '../models/product';
 
-interface FormRequest {
-  nome: string;
-  unidade_medida: 'lt' | 'kg' | 'un';
-  quantidade: number;
-  preco: string;
-  produto_perecivel: boolean;
-  data_validade?: string;
-  data_fabricacao: string;
-
-}
 @Injectable({
   providedIn: 'root'
 })
@@ -17,12 +8,12 @@ interface FormRequest {
 export class ProductService {
 private storageKey  = 'items';
 
-getItem(): FormRequest[]{
+getItem(): Product[]{
 const savedItems = sessionStorage.getItem(this.storageKey);
 return savedItems ? JSON.parse(savedItems) : [];
 }
 
-saveItems (items: FormRequest[]):void{
+saveItems (items: Product[]):void{
 sessionStorage.setItem(this.storageKey, JSON.stringify(items));
 }
 
@@ -32,7 +23,7 @@ items.push(item);
 this.saveItems(items);
 }
 
-updateItem(index: number, item: FormRequest): void {
+updateItem(index: number, item: Product): void {
   const items = this.getItem();
   if(index >= 0 && index < items.length){
     items[index] = item;
