@@ -1,0 +1,77 @@
+section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container_form {
+  background-color: #252D4A;
+  width: 400px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1.5rem;
+  border-radius: 8px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    input, select {
+      width: 310px;
+      padding: 0.25rem;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+    .checkbox {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 1rem;
+      span {
+        display: flex;
+        padding-right:1rem;
+      }
+      input {
+        width: 30px;
+        margin: 0;
+      }
+    }
+    .btn_actions {
+      display: flex;
+      align-items:center;
+      justify-content: flex-end;
+      gap: 1rem;
+
+      button {
+        width: 100px;
+        padding:  0.75rem 0.5rem;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .btn_cancel {
+        background-color: #F75A68;
+        color: #E6E8F2;
+        transition:all 0.2s ease-in-out;
+      }
+      .btn_cancel:hover {
+        background-color:#E6E8F2;
+        color: #F75A68;
+      }
+      .btn_save {
+        background-color: #00875F;
+        color: #E6E8F2;
+        transition:all 0.2s ease-in-out;
+      }
+
+      .btn_save:hover {
+        background-color:#E6E8F2;
+        color: #00875F;
+      }
+    }
+  }
+}
+.container_form input[type="date"] {
+  font-size: 16px;
+}
