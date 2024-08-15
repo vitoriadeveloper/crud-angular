@@ -21,9 +21,17 @@ header {
     justify-content: center;
     gap: 1rem;
   }
-  a {
-    display: flex;
+
+  button {
+    background-color: transparent;
     color: #E6E8F2;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+  }
+
+  button:hover {
+    color: #b8bac1;
   }
 }
 
