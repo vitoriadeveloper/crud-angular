@@ -16,3 +16,25 @@ a {
 button {
   border: none;
 }
+.toast-success {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  width: 200px;
+  padding: 8px;
+  background-color: #28a745;
+  border-radius: 8px;
+  color: #E6E8F2;
+}
+
+.toast-error {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  width: 200px;
+  padding: 8px;
+  background-color: #dc3545;
+  border-radius: 8px;
+  color: #E6E8F2;
+}
+
