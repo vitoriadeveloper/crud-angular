@@ -15,6 +15,9 @@ section {
   padding: 1.5rem;
   border-radius: 8px;
 
+  p {
+    color: #F75A68;
+  }
   form {
     display: flex;
     flex-direction: column;
@@ -43,7 +46,6 @@ section {
       align-items: center;
       justify-content: flex-end;
       gap: 1rem;
-
       button {
         width: 100px;
         padding: 0.75rem 0.5rem;

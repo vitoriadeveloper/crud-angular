@@ -8,6 +8,7 @@ import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 
 import { provideNgxMask } from 'ngx-mask';
+import { provideToastr } from 'ngx-toastr';
 
 registerLocaleData(localePt, 'pt-BR');
 export const appConfig: ApplicationConfig = {
@@ -15,6 +16,8 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync(),
     { provide: LOCALE_ID, useValue: 'pt-BR' },
-    provideNgxMask()
+    provideNgxMask(),
+    provideAnimationsAsync(),
+    provideToastr(),
   ],
 };
