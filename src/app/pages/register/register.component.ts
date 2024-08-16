@@ -3,11 +3,14 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ProductService } from '../../service/product.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BrDatePipe } from '../../shared/br-date.pipe';
+
+
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, BrDatePipe],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -20,6 +23,7 @@ private route = inject(Router);
 private fb: FormBuilder = inject(FormBuilder);
 private productService = inject(ProductService);
 private activatedRoute = inject(ActivatedRoute);
+private datePipe = new BrDatePipe();
 
 ngOnInit(): void {
   this.createForm();
@@ -59,8 +63,8 @@ onSubmit(): void {
       quantidade: parseFloat(formValues.quantity),
       preco: formValues.price,
       produtoPerecivel: formValues.perishable_product,
-      dataValidade: formValues.validate_date,
-      dataFabricacao: formValues.initial_date,
+      dataValidade: this.datePipe.transform(formValues.validate_date),
+      dataFabricacao: this.datePipe.transform(formValues.initial_date)
     };
 
     if (this.isEditing && this.currentItemIndex !== null) {
