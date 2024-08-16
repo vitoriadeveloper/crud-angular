@@ -1,34 +1,33 @@
 <section class="container">
   <div class="container_form">
-    <form>
+    <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
       <label for="name">Nome do Produto</label>
-      <input type="text" id="name" name="name">
+      <input type="text" id="name" name="name" formControlName="name">
       <label for="unity">Unidade de Medida</label>
-      <select name="unity" id="unity">
+      <select name="unity" id="unity" formControlName="unity">
         <option value=""></option>
         <option value="kg">kg</option>
         <option value="lt">lt</option>
-        <option value="lt">un</option>
+        <option value="un">un</option>
       </select>
       <label for="quantity">Quantidade</label>
-      <input type="number"  id="quantity" name="quantity">
+      <input type="number"  id="quantity" name="quantity" formControlName="quantity">
       <label for="price">Preço</label>
-      <input type="number"  id="price" name="price">
+      <input type="number"  id="price" name="price" formControlName="price">
       <div class="checkbox">
-        <span>Produto perecível</span>
-        <label for="true">Sim</label>
-        <input type="checkbox"  id="true" name="true" >
-        <label for="false">Não</label>
-        <input type="checkbox"  id="false" name="false">
+        <label>
+          <input type="checkbox" id="perishable_product" formControlName="perishable_product">
+          Produto perecível
+        </label>
       </div>
       <label for="validate_date">Data de validade</label>
-      <input type="date"  id="validate_date" name="validate_date">
-      <label for="manufacturing_date">Data de fabricação</label>
-      <input type="date"  id="manufacturing_date" name="manufacturing_date">
+      <input    id="validate_date" name="validate_date" formControlName="validate_date">
+      <label for="initial_date">Data de fabricação</label>
+      <input  id="initial_date" name="initial_date" formControlName="initial_date">
 
       <div class="btn_actions">
-        <button class="btn_cancel">Cancelar</button>
-        <button class="btn_save">Salvar</button>
+        <button class="btn_cancel" type="button" (click)="onClickCancelButton()">Cancelar</button>
+        <button class="btn_save" type="submit" [disabled]="!itemForm.valid">Salvar</button>
       </div>
     </form>
   </div>

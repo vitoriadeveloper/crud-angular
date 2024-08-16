@@ -40,34 +40,44 @@ section {
     }
     .btn_actions {
       display: flex;
-      align-items:center;
+      align-items: center;
       justify-content: flex-end;
       gap: 1rem;
 
       button {
         width: 100px;
-        padding:  0.75rem 0.5rem;
+        padding: 0.75rem 0.5rem;
         border-radius: 8px;
         cursor: pointer;
       }
+
       .btn_cancel {
         background-color: #F75A68;
         color: #E6E8F2;
-        transition:all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          background-color: #E6E8F2;
+          color: #F75A68;
+        }
       }
-      .btn_cancel:hover {
-        background-color:#E6E8F2;
-        color: #F75A68;
-      }
+
       .btn_save {
         background-color: #00875F;
         color: #E6E8F2;
-        transition:all 0.2s ease-in-out;
-      }
+        transition: all 0.2s ease-in-out;
 
-      .btn_save:hover {
-        background-color:#E6E8F2;
-        color: #00875F;
+        &:hover {
+          background-color: #E6E8F2;
+          color: #00875F;
+        }
+
+        &:disabled {
+          background-color: #C0C0C0; /* Grey color for disabled state */
+          color: #8B8B8B; /* Slightly darker grey for text */
+          cursor: not-allowed; /* Change cursor to indicate disabled state */
+          opacity: 0.6; /* Optional: make the button slightly transparent */
+        }
       }
     }
   }
