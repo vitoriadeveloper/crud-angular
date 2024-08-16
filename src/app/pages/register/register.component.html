@@ -2,7 +2,8 @@
   <div class="container_form">
     <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
       <label for="name">Nome do Produto</label>
-      <input type="text" id="name" name="name" formControlName="name">
+      <input type="text" id="name" name="name" formControlName="name" />
+
       <label for="unity">Unidade de Medida</label>
       <select name="unity" id="unity" formControlName="unity">
         <option value=""></option>
@@ -10,24 +11,72 @@
         <option value="lt">lt</option>
         <option value="un">un</option>
       </select>
+
       <label for="quantity">Quantidade</label>
-      <input type="number"  id="quantity" name="quantity" formControlName="quantity">
+      <input
+        type="number"
+        id="quantity"
+        name="quantity"
+        formControlName="quantity"
+        [attr.min]="itemForm.get('unity')?.value === 'un' ? null : '1'"
+        [attr.max]="itemForm.get('unity')?.value === 'un' ? null : '999'"
+      />
+
       <label for="price">Preço</label>
-      <input type="number"  id="price" name="price" formControlName="price">
+      <input
+        id="price"
+        name="price"
+        formControlName="price"
+        mask="separator.2"
+        [decimalMarker]="','"
+        prefix="R$ "
+        maxlength="20"
+      />
+
       <div class="checkbox">
         <label>
-          <input type="checkbox" id="perishable_product" formControlName="perishable_product">
+          <input
+            type="checkbox"
+            id="perishable_product"
+            formControlName="perishable_product"
+          />
           Produto perecível
         </label>
       </div>
+
       <label for="validate_date">Data de validade</label>
-      <input id="validate_date"  type="date" name="validate_date" formControlName="validate_date">
+      <input
+        id="validate_date"
+        type="date"
+        name="validate_date"
+        formControlName="validate_date"
+      />
+      <ng-container *ngIf="isExpired">
+        <p>O produto encontra-se vencido!</p>
+      </ng-container>
+
       <label for="initial_date">Data de fabricação</label>
-      <input  id="initial_date" type="date"  name="initial_date" formControlName="initial_date">
+      <input
+        id="initial_date"
+        type="date"
+        name="initial_date"
+        formControlName="initial_date"
+      />
+      <ng-container *ngIf="isInvalidDateRange">
+        <p>A data de fabricação não pode ser superior à data de validade!</p>
+      </ng-container>
 
       <div class="btn_actions">
-        <button class="btn_cancel" type="button" (click)="onClickCancelButton()">Cancelar</button>
-        <button class="btn_save" type="submit" [disabled]="!itemForm.valid">Salvar</button>
+        <button
+          class="btn_cancel"
+          type="button"
+          (click)="onClickCancelButton()"
+        >
+          Cancelar
+        </button>
+        <button class="btn_save" type="submit" [disabled]="!itemForm.valid">
+          Salvar
+        </button>
       </div>
     </form>
   </div>
