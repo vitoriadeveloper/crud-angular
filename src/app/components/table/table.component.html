@@ -1,0 +1,31 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome do Item</th>
+      <th>Quantidade</th>
+      <th>Preço</th>
+      <th>Produto Perecível</th>
+      <th>Data de Validade</th>
+      <th>Data de Fabricação</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products; let i = index">
+      <td>{{ product.nome }}</td>
+      <td>{{ product.quantidade }}{{ product.unidadeMedida }}</td>
+      <td>R$ {{ product.preco }}</td>
+      <td>{{ product.produtoPerecivel ? 'Sim' : 'Não' }}</td>
+      <td>{{ product.dataValidade ? product.dataValidade : 'Sem validade' }}</td>
+      <td>{{ product.dataFabricacao}}</td>
+      <td>
+        <button (click)="editProduct(i)" aria-label="Editar">
+          <img src="../../../assets/svg/pencil.svg" alt="Editar">
+        </button>
+        <button (click)="deleteProduct(i)" aria-label="Excluir">
+          <img src="../../../assets/svg/x.svg" alt="Excluir">
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
