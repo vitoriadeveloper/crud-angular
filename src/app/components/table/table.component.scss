@@ -29,3 +29,24 @@ button img {
 button:hover img {
   opacity: 0.8;
 }
+
+.isEmpty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+
+  button {
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    background-color: #00875F;
+    color: #E6E8F2;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #E6E8F2;
+      color: #00875F;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +9,7 @@ import { Route, Router } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  private router = inject(Router)
+  private router = inject(Router);
 
   OnListClick(): void{
     this.router.navigate(['/home']);

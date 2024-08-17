@@ -15,6 +15,8 @@ import { catchError, of, tap } from 'rxjs';
 })
 export class TableComponent implements OnInit {
   products: Product[] = [];
+  isEmpty: boolean = false;
+
   private route = inject(Router);
   private productService = inject(ProductService);
   private toastr = inject(ToastrService);
@@ -25,9 +27,13 @@ export class TableComponent implements OnInit {
 
   getProducts(): void {
     this.productService.getItem().pipe(
-      tap(items => this.products = items),
+      tap(items => {
+        this.products = items;
+        this.isEmpty = items.length === 0;
+      }),
       catchError(error => {
         this.showError();
+        this.isEmpty = true;
         return of([]);
       })
     ).subscribe();
@@ -41,6 +47,10 @@ export class TableComponent implements OnInit {
     this.toastr.success('Operação realizada com sucesso!', 'Sucesso', {
       toastClass: 'toast toast-success'
     });
+  }
+
+  OnAddClick(): void {
+    this.route.navigate(['/register']);
   }
 
   showError(): void {
